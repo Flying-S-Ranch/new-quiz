@@ -1,10 +1,19 @@
 // DEPENDENCIES
+var body = document.body
+var startBox = document.createElement("div")
+var startButton = document.createElement("button")
 // start-button
 
 
 // DATA / STATE
 // start-box
+startBox.textContent = "Ready to test you JavaScript knowledge?"
+startButton.textContent = "Start the Quiz"
 
+body.appendChild(startBox)
+startBox.appendChild(startButton)
+
+startBox.setAttribute("style", "margin: 20px black")
 // quiz-box
 
 // score-box
