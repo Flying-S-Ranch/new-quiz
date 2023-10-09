@@ -1,0 +1,8 @@
+* {
+    box-sizing: border-box;
+    border: 1px red solid;
+}
+
+h1 {
+    font-size: 2.5em;
+}
