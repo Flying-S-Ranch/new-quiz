@@ -1,8 +1,8 @@
 var body = document.body;
-var h1El = document.createElement("h1")
+var divEl = document.createElement("div")
 
-h1El.textContent = "Hello World"
+divEl.textContent = "Hello World"
 
-body.appendChild(h1El)
+body.appendChild(divEl)
 
-h1El.setAttribute("style", "margin:auto; width: 50%; text-align:center")
+divEl.setAttribute("style", "margin:auto; width: 50%; text-align:center")
