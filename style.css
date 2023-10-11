@@ -13,6 +13,30 @@
     padding-top: 15px
 }
 
+#quiz-box {
+    border: 10px green solid;
+    height: 50vh;
+    flex-direction: column;
+    margin:auto; 
+    width: 50%; 
+    text-align:center; 
+    padding-top: 15px
+}
+
+#answer-div {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.answer-button {
+    margin: 10px;
+    width: 35%
+}
+
 .display-visible {
     display: flex;
 }
