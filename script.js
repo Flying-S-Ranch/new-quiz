@@ -1,8 +1,11 @@
 var body = document.body;
-var divEl = document.createElement("div")
+var startBox = document.createElement("div")
+var startButton = document.createElement("button")
 
-divEl.textContent = "Hello World"
+startBox.textContent = "Hello World"
+startButton.textContent = "Start the Quiz"
 
-body.appendChild(divEl)
+body.appendChild(startBox)
+startBox.appendChild(startButton)
 
-divEl.setAttribute("style", "margin:auto; width: 50%; text-align:center")
+startBox.setAttribute("style", "margin:auto; width: 50%; text-align:center")
