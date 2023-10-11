@@ -10,6 +10,7 @@ var startDisplay = "visible"
 var quizBox = document.createElement("div")
 var timeDiv = document.createElement("div")
 var timer = document.createElement("h4")
+var secondsLeft = 60
 var questionText = document.createElement("h3")
 var answerDiv = document.createElement("div")
 var ansA = document.createElement("button")
@@ -24,7 +25,7 @@ startText.textContent = "Ready to test your JavaScript knowledge?"
 startButton.textContent = "Start the Quiz"
 
 // text of the quiz box
-timer.textContent = "60"
+timer.textContent = ":60"
 questionText.textContent = "Hello World"
 ansA.textContent = "Hello A"
 ansB.textContent = "Hello B"
@@ -56,13 +57,24 @@ startButton.setAttribute("style", "width: 20%; background-color: teal; margin: a
 // attributes of the quiz box
 quizBox.setAttribute("class", "display-none")
 quizBox.setAttribute("id", "quiz-box")
+timeDiv.setAttribute("id", "time-div")
 answerDiv.setAttribute("id", "answer-div")
 ansA.setAttribute("class", "answer-button")
 ansB.setAttribute("class", "answer-button")
 ansC.setAttribute("class", "answer-button")
 ansD.setAttribute("class", "answer-button")
-// FUNCTIONS
 
+// FUNCTIONS
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timer.textContent = ":" + secondsLeft
+
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+}
 
 // USER INTERACTIONS
 startBox.addEventListener("click", function() {
@@ -71,6 +83,7 @@ startBox.addEventListener("click", function() {
         startBox.setAttribute("class","display-none")
         quizDisplay = "visible"
         quizBox.setAttribute("class", "display-visible")
+        setTime()
     }
 })
 

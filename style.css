@@ -23,6 +23,16 @@
     padding-top: 15px
 }
 
+#time-div {
+    border: 5px yellow solid;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+h4 {
+    margin: 0;
+}
+
 #answer-div {
     display:flex;
     flex-direction: row;
