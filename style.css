@@ -15,7 +15,7 @@
 
 #quiz-box {
     border: 10px green solid;
-    height: 50vh;
+    height: 80vh;
     flex-direction: column;
     margin:auto; 
     width: 50%; 
@@ -34,7 +34,9 @@
 
 .answer-button {
     margin: 10px;
-    width: 35%
+    width: 35%;
+    padding: 5px;
+    border-radius: 3px;
 }
 
 .display-visible {

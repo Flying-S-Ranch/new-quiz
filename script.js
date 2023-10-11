@@ -8,6 +8,8 @@ var startDisplay = "visible"
 
 // this is the box that displays the questions
 var quizBox = document.createElement("div")
+var timeDiv = document.createElement("div")
+var timer = document.createElement("h4")
 var questionText = document.createElement("h3")
 var answerDiv = document.createElement("div")
 var ansA = document.createElement("button")
@@ -22,6 +24,7 @@ startText.textContent = "Ready to test your JavaScript knowledge?"
 startButton.textContent = "Start the Quiz"
 
 // text of the quiz box
+timer.textContent = "60"
 questionText.textContent = "Hello World"
 ansA.textContent = "Hello A"
 ansB.textContent = "Hello B"
@@ -35,6 +38,8 @@ startBox.appendChild(startButton)
 
 // children of the quiz box
 body.appendChild(quizBox)
+quizBox.appendChild(timeDiv)
+timeDiv.appendChild(timer)
 quizBox.appendChild(questionText)
 quizBox.appendChild(answerDiv)
 answerDiv.appendChild(ansA)
