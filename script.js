@@ -10,7 +10,7 @@ var startDisplay = "visible"
 var quizBox = document.createElement("div")
 var timeDiv = document.createElement("div")
 var timer = document.createElement("h4")
-var secondsLeft = 60
+var secondsLeft = 5
 var questionText = document.createElement("h3")
 var answerDiv = document.createElement("div")
 var ansA = document.createElement("button")
@@ -19,18 +19,28 @@ var ansC = document.createElement("button")
 var ansD = document.createElement("button")
 var quizDisplay = "none"
 
+// this is the box that says 'game over'
+var endBox = document.createElement("div")
+var gameOver = document.createElement("h3")
+var prompt = document.createElement("h4")
+var endDisplay = "none"
+
 // DATA / STATE
 // text of the start box
 startText.textContent = "Ready to test your JavaScript knowledge?"
 startButton.textContent = "Start the Quiz"
 
 // text of the quiz box
-timer.textContent = ":60"
+timer.textContent = ":5"
 questionText.textContent = "Hello World"
 ansA.textContent = "Hello A"
 ansB.textContent = "Hello B"
 ansC.textContent = "Hello C"
 ansD.textContent = "Hello D"
+
+// text of the end box
+gameOver.textContent = "GAME OVER"
+prompt.textContent = "Please enter your initials"
 
 // children of the start box
 body.appendChild(startBox)
@@ -48,11 +58,15 @@ answerDiv.appendChild(ansB)
 answerDiv.appendChild(ansC)
 answerDiv.appendChild(ansD)
 
+// children of the end box
+body.appendChild(endBox)
+endBox.appendChild(gameOver)
+endBox.appendChild(prompt)
 
 // attributes of the start box
 startBox.setAttribute("id", "start-box")
 startBox.setAttribute("class", "display-visible")
-startButton.setAttribute("style", "width: 20%; background-color: teal; margin: auto; padding: 5px; border-radius: 3px")
+startButton.setAttribute("id", "start-button")
 
 // attributes of the quiz box
 quizBox.setAttribute("class", "display-none")
@@ -64,6 +78,10 @@ ansB.setAttribute("class", "answer-button")
 ansC.setAttribute("class", "answer-button")
 ansD.setAttribute("class", "answer-button")
 
+// attributes of the end box
+endBox.setAttribute("class", "display-none")
+endBox.setAttribute("id", "end-box")
+
 // FUNCTIONS
 function setTime() {
     var timerInterval = setInterval(function() {
@@ -72,6 +90,8 @@ function setTime() {
 
         if(secondsLeft === 0) {
             clearInterval(timerInterval);
+            quizBox.setAttribute("class", "display-none")
+            endBox.setAttribute("class", "display-visible")
         }
     }, 1000);
 }
