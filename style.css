@@ -3,11 +3,14 @@
     border: 1px red solid;
 }
 
-div {
+#start-box {
     border: 10px black solid;
     height: 50vh;
-    /* display: flex; */
     flex-direction: column;
+    margin:auto; 
+    width: 50%; 
+    text-align:center; 
+    padding-top: 15px
 }
 
 .display-visible {

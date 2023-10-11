@@ -14,7 +14,7 @@ body.appendChild(startBox)
 startBox.appendChild(startText)
 startBox.appendChild(startButton)
 
-startBox.setAttribute("style", "margin:auto; width: 50%; text-align:center; padding-top: 15px")
+startBox.setAttribute("id", "start-box")
 startBox.setAttribute("class", "display-visible")
 startButton.setAttribute("style", "width: 20%; background-color: teal; margin: auto; padding: 5px; border-radius: 3px")
 
