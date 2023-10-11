@@ -4,7 +4,7 @@ var startBox = document.createElement("div")
 var startText = document.createElement("h2")
 var startButton = document.createElement("button")
 
-var display = "visible"
+var startDisplay = "visible"
 
 // DATA / STATE
 startText.textContent = "Ready to test your JavaScript knowledge?"
@@ -15,6 +15,7 @@ startBox.appendChild(startText)
 startBox.appendChild(startButton)
 
 startBox.setAttribute("style", "margin:auto; width: 50%; text-align:center; padding-top: 15px")
+startBox.setAttribute("class", "display-visible")
 startButton.setAttribute("style", "width: 20%; background-color: teal; margin: auto; padding: 5px; border-radius: 3px")
 
 // FUNCTIONS
@@ -22,9 +23,9 @@ startButton.setAttribute("style", "width: 20%; background-color: teal; margin: a
 
 // USER INTERACTIONS
 startBox.addEventListener("click", function() {
-    if (display === "visible") {
-        display = "none";
-        startBox.setAttribute("style", "display:none")
+    if (startDisplay === "visible") {
+        startDisplay = "none";
+        startBox.setAttribute("class","display-none")
     }
 })
 
