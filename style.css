@@ -90,6 +90,16 @@ h4 {
     width: 25%;
 }
 
+#score-box {
+    border: 10px var(--blue) solid;
+    height: 80vh;
+    flex-direction: column;
+    margin:auto; 
+    width: 50%; 
+    text-align:center; 
+    padding-top: 15px
+}
+
 .display-visible {
     display: flex;
 }

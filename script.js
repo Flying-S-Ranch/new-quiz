@@ -27,6 +27,12 @@ var prompt = document.createElement("h4")
 var input = document.createElement("input")
 var endDisplay = "none"
 
+// this is the box where initials and scores are displayed
+var scoreBox = document.createElement("div")
+var scoreTitle = document.createElement("h3")
+var scoreList = document.createElement("ol")
+var scoreOne = document.createElement("li")
+
 // DATA / STATE
 // text of the start box
 startText.textContent = "Ready to test your JavaScript knowledge?"
@@ -43,6 +49,9 @@ ansD.textContent = "Hello D"
 // text of the end box
 gameOver.textContent = "GAME OVER"
 prompt.textContent = "Please enter your initials:"
+
+// text of the score box 
+scoreTitle.textContent = "Game Scores"
 
 // children of the start box
 body.appendChild(startBox)
@@ -67,6 +76,12 @@ endBox.appendChild(promptBox)
 promptBox.appendChild(prompt)
 promptBox.appendChild(input)
 
+// children of the score box
+body.appendChild(scoreBox)
+scoreBox.appendChild(scoreTitle)
+scoreBox.appendChild(scoreList)
+scoreBox.appendChild(scoreOne)
+
 // attributes of the start box
 startBox.setAttribute("id", "start-box")
 startBox.setAttribute("class", "display-visible")
@@ -89,6 +104,10 @@ promptBox.setAttribute("id", "prompt-box")
 prompt.setAttribute("id", "prompt")
 input.setAttribute("type", "text")
 input.setAttribute("id", "initial-input")
+
+// attributes of the score box 
+scoreBox.setAttribute("class", "display-none")
+scoreBox.setAttribute("id", "score-box")
 
 // FUNCTIONS
 function setTime() {
@@ -123,6 +142,8 @@ input.addEventListener("keypress", function(event) {
         var saveInitials = initials.toUpperCase()
         localStorage.setItem("player", saveInitials)
         input.value = ""
+        endBox.setAttribute("class", "display-none")
+        scoreBox.setAttribute("class", "display-visible")
     }
 })
 
