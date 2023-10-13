@@ -22,7 +22,9 @@ var quizDisplay = "none"
 // this is the box that says 'game over'
 var endBox = document.createElement("div")
 var gameOver = document.createElement("h3")
+var promptBox = document.createElement("div")
 var prompt = document.createElement("h4")
+var input = document.createElement("input")
 var endDisplay = "none"
 
 // DATA / STATE
@@ -40,7 +42,7 @@ ansD.textContent = "Hello D"
 
 // text of the end box
 gameOver.textContent = "GAME OVER"
-prompt.textContent = "Please enter your initials"
+prompt.textContent = "Please enter your initials:"
 
 // children of the start box
 body.appendChild(startBox)
@@ -61,7 +63,9 @@ answerDiv.appendChild(ansD)
 // children of the end box
 body.appendChild(endBox)
 endBox.appendChild(gameOver)
-endBox.appendChild(prompt)
+endBox.appendChild(promptBox)
+promptBox.appendChild(prompt)
+promptBox.appendChild(input)
 
 // attributes of the start box
 startBox.setAttribute("id", "start-box")
@@ -81,6 +85,10 @@ ansD.setAttribute("class", "answer-button")
 // attributes of the end box
 endBox.setAttribute("class", "display-none")
 endBox.setAttribute("id", "end-box")
+promptBox.setAttribute("id", "prompt-box")
+prompt.setAttribute("id", "prompt")
+input.setAttribute("type", "text")
+input.setAttribute("id", "initial-input")
 
 // FUNCTIONS
 function setTime() {

@@ -78,6 +78,18 @@ h4 {
     padding: 15px
 }
 
+#prompt-box {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 50%;
+    justify-content: space-around;
+}
+
+#initial-input {
+    width: 25%;
+}
+
 .display-visible {
     display: flex;
 }
