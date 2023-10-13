@@ -115,6 +115,7 @@ startBox.addEventListener("click", function() {
     }
 })
 
+// I followed the example of a W3 Schools article to trigger an event with the enter key, please see README for the link
 input.addEventListener("keypress", function(event) {
     var initials = input.value
     if (event.key === "Enter") {
