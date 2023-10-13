@@ -120,7 +120,9 @@ input.addEventListener("keypress", function(event) {
     var initials = input.value
     if (event.key === "Enter") {
         event.preventDefault();
-        console.log(initials)
+        var saveInitials = initials.toUpperCase()
+        localStorage.setItem("player", saveInitials)
+        input.value = ""
     }
 })
 
