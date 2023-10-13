@@ -115,4 +115,12 @@ startBox.addEventListener("click", function() {
     }
 })
 
+input.addEventListener("keypress", function(event) {
+    var initials = input.value
+    if (event.key === "Enter") {
+        event.preventDefault();
+        console.log(initials)
+    }
+})
+
 // INITIALIZATIONS
