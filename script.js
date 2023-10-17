@@ -11,7 +11,7 @@ var quizBox = document.createElement("div")
 var timeDiv = document.createElement("div")
 var timer = document.createElement("h4")
 var score = document.createElement("h4")
-var secondsLeft = 5
+var secondsLeft
 var questionText = document.createElement("h3")
 var answerDiv = document.createElement("div")
 var ansA = document.createElement("button")
@@ -33,6 +33,7 @@ var scoreBox = document.createElement("div")
 var scoreTitle = document.createElement("h3")
 var scoreList = document.createElement("ol")
 var scoreOne = document.createElement("li")
+var againButton = document.createElement("button")
 
 // DATA / STATE
 // text of the start box
@@ -54,6 +55,7 @@ prompt.textContent = "Please enter your initials:"
 
 // text of the score box 
 scoreTitle.textContent = "Game Scores"
+againButton.textContent = "Play Again"
 
 // children of the start box
 body.appendChild(startBox)
@@ -84,6 +86,7 @@ body.appendChild(scoreBox)
 scoreBox.appendChild(scoreTitle)
 scoreBox.appendChild(scoreList)
 scoreBox.appendChild(scoreOne)
+scoreBox.appendChild(againButton)
 
 // attributes of the start box
 startBox.setAttribute("id", "start-box")
@@ -113,9 +116,11 @@ input.setAttribute("id", "initial-input")
 // attributes of the score box 
 scoreBox.setAttribute("class", "display-none")
 scoreBox.setAttribute("id", "score-box")
+againButton.setAttribute("id", "again-button")
 
 // FUNCTIONS
 function setTime() {
+    var secondsLeft = 5
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timer.textContent = "Time :" + secondsLeft
@@ -128,15 +133,27 @@ function setTime() {
     }, 1000);
 }
 
+function placeScores() {
+    // get all the scores from local storage
+
+    // put the scores into an array
+
+    // arrange scores from high to low
+
+    // display scores in ordered list
+}
+
 // USER INTERACTIONS
-startBox.addEventListener("click", function() {
-    if (startDisplay === "visible") {
-        startDisplay = "none";
+startButton.addEventListener("click", function() {
         startBox.setAttribute("class","display-none")
-        quizDisplay = "visible"
         quizBox.setAttribute("class", "display-visible")
         setTime()
-    }
+    
+})
+
+againButton.addEventListener("click", function() {
+    scoreBox.setAttribute("class", "display-none")
+    startBox.setAttribute("class", "display-visible")
 })
 
 // I followed the example of a W3 Schools article to trigger an event with the enter key, please see README for the link
@@ -149,6 +166,7 @@ input.addEventListener("keypress", function(event) {
         input.value = ""
         endBox.setAttribute("class", "display-none")
         scoreBox.setAttribute("class", "display-visible")
+        placeScores()
     }
 })
 

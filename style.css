@@ -107,6 +107,14 @@ h4 {
     padding-top: 15px
 }
 
+#again-button {
+    width: 20%; 
+    background-color: var(--gold); 
+    margin: auto; 
+    padding: 5px; 
+    border-radius: 3px
+}
+
 .display-visible {
     display: flex;
 }
