@@ -47,6 +47,13 @@ body {
     border: 5px var(--blue) solid;
     padding: 10px;
     margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.timer-div-elements {
+    margin: 0 10px;
 }
 
 h4 {
