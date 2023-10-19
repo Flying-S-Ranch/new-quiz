@@ -49,6 +49,35 @@ ansB.textContent = "Hello B"
 ansC.textContent = "Hello C"
 ansD.textContent = "Hello D"
 
+// object containing quiz questions
+var quiz = [
+    {
+        "question": "this is the content of question 1",
+        a: "Answer A",
+        b: "Answer B",
+        c: "Answer C",
+        d: "Answer D",
+        correct: "c"
+    },
+    {
+        "question": "this is the content of question 1",
+        a: "Answer A",
+        b: "Answer B",
+        c: "Answer C",
+        d: "Answer D",
+        correct: "c"
+    },
+    {
+        "question": "this is the content of question 1",
+        a: "Answer A",
+        b: "Answer B",
+        c: "Answer C",
+        d: "Answer D",
+        correct: "c"
+    }
+    
+]
+
 // text of the end box
 gameOver.textContent = "GAME OVER"
 prompt.textContent = "Please enter your initials:"
@@ -149,6 +178,21 @@ startButton.addEventListener("click", function() {
         quizBox.setAttribute("class", "display-visible")
         setTime()
     
+})
+
+ansC.addEventListener("click", function() {
+    // if answer is correct, add to the score
+
+    // if answer is incorrect, take away time
+
+    // change to the next question
+    for (i = 0; i < quiz.length; i++) {
+        if (quiz[i].correct === "c") {
+            console.log("correct")
+        }  else {
+            console.log("incorrect")
+        }
+    }
 })
 
 againButton.addEventListener("click", function() {
