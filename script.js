@@ -151,7 +151,7 @@ againButton.setAttribute("id", "again-button")
 
 // FUNCTIONS
 function setTime() {
-    secondsLeft = 5
+    secondsLeft = 30
     scoreValue = 0
     timer.textContent = "Time :" + secondsLeft
     var timerInterval = setInterval(function() {
@@ -199,6 +199,24 @@ ansC.addEventListener("click", function() {
         }  else {
             // if answer is incorrect, take away time
             console.log("incorrect")
+            secondsLeft = secondsLeft - 10
+        }
+        // change to the next question
+        i ++
+    }
+})
+
+ansA.addEventListener("click", function() {
+    for (i = 0; i < quiz.length; i++) {
+        if (quiz[i].correct === "a") {
+            // if answer is correct, add to the score
+            console.log("correct")
+            scoreValue = scoreValue + 10
+            score.textContent = "Score: " + scoreValue
+        }  else {
+            // if answer is incorrect, take away time
+            console.log("incorrect")
+            secondsLeft = secondsLeft - 10
         }
         // change to the next question
         i ++
