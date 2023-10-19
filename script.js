@@ -11,6 +11,7 @@ var quizBox = document.createElement("div")
 var timeDiv = document.createElement("div")
 var timer = document.createElement("h4")
 var score = document.createElement("h4")
+var scoreValue
 var secondsLeft
 var questionText = document.createElement("h3")
 var answerDiv = document.createElement("div")
@@ -41,8 +42,8 @@ startText.textContent = "Ready to test your JavaScript knowledge?"
 startButton.textContent = "Start the Quiz"
 
 // text of the quiz box
-timer.textContent = "Time :5"
-score.textContent = "Score"
+// timer.textContent = "Time :5"
+// score.textContent = "Score: " + scoreValue 
 questionText.textContent = "Hello World"
 ansA.textContent = "Hello A"
 ansB.textContent = "Hello B"
@@ -128,6 +129,7 @@ quizBox.setAttribute("id", "quiz-box")
 timeDiv.setAttribute("id", "time-div")
 timer.setAttribute("class", "timer-div-elements")
 score.setAttribute("class", "timer-div-elements")
+
 answerDiv.setAttribute("id", "answer-div")
 ansA.setAttribute("class", "answer-button")
 ansB.setAttribute("class", "answer-button")
@@ -149,7 +151,9 @@ againButton.setAttribute("id", "again-button")
 
 // FUNCTIONS
 function setTime() {
-    var secondsLeft = 5
+    secondsLeft = 5
+    scoreValue = 0
+    timer.textContent = "Time :" + secondsLeft
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timer.textContent = "Time :" + secondsLeft
@@ -160,6 +164,10 @@ function setTime() {
             endBox.setAttribute("class", "display-visible")
         }
     }, 1000);
+}
+
+function displayQuiz() {
+    score.textContent = "Score: " + scoreValue
 }
 
 function placeScores() {
@@ -177,21 +185,23 @@ startButton.addEventListener("click", function() {
         startBox.setAttribute("class","display-none")
         quizBox.setAttribute("class", "display-visible")
         setTime()
+        displayQuiz()
     
 })
 
 ansC.addEventListener("click", function() {
-    // if answer is correct, add to the score
-
-    // if answer is incorrect, take away time
-
-    // change to the next question
     for (i = 0; i < quiz.length; i++) {
         if (quiz[i].correct === "c") {
+            // if answer is correct, add to the score
             console.log("correct")
+            scoreValue = scoreValue + 10
+            score.textContent = "Score: " + scoreValue
         }  else {
+            // if answer is incorrect, take away time
             console.log("incorrect")
         }
+        // change to the next question
+        i ++
     }
 })
 
