@@ -173,21 +173,21 @@ function displayQuiz() {
 }
 
 function evaluateAnswer(letter) {
-    // for (i = 0; i < quiz.length; i++) {
-    //     if (quiz[i].correct === letter) {
-    //         // if answer is correct, add to the score
-    //         console.log("correct")
-    //         scoreValue = scoreValue + 10
-    //         score.textContent = "Score: " + scoreValue
-    //     }  else {
-    //         // if answer is incorrect, take away time
-    //         console.log("incorrect")
-    //         secondsLeft = secondsLeft - 10
-    //     }
-    //     // change to the next question
-    //     i ++
-    // }
-    console.log(letter)
+    for (i = 0; i < quiz.length; i++) {
+        if (quiz[i].correct === letter) {
+            // if answer is correct, add to the score
+            console.log("correct")
+            scoreValue = scoreValue + 10
+            score.textContent = "Score: " + scoreValue
+        }  else {
+            // if answer is incorrect, take away time
+            console.log("incorrect")
+            secondsLeft = secondsLeft - 10
+        }
+        // change to the next question
+        i ++
+    }
+    // console.log(letter)
 }
 
 function placeScores() {
@@ -209,9 +209,9 @@ startButton.addEventListener("click", function() {
 })
 
 ansA.addEventListener("click", function(){evaluateAnswer("a")})
-// ansB.addEventListener("click", evaluateAnswer("b"))
-// ansC.addEventListener("click", evaluateAnswer("c"))
-// ansD.addEventListener("click", evaluateAnswer("d"))
+ansB.addEventListener("click", function(){evaluateAnswer("b")})
+ansC.addEventListener("click", function(){evaluateAnswer("c")})
+ansD.addEventListener("click", function(){evaluateAnswer("d")})
 
 
 againButton.addEventListener("click", function() {
