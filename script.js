@@ -13,6 +13,7 @@ var timer = document.createElement("h4")
 var score = document.createElement("h4")
 var scoreValue
 var secondsLeft
+var i = 0
 var questionText = document.createElement("h3")
 var answerDiv = document.createElement("div")
 var ansA = document.createElement("button")
@@ -56,20 +57,20 @@ var quiz = [
         correct: "c"
     },
     {
-        question: "this is the content of question 1",
+        question: "this is the content of question 2",
         a: "Answer A",
         b: "Answer B",
         c: "Answer C",
         d: "Answer D",
-        correct: "c"
+        correct: "a"
     },
     {
-        question: "this is the content of question 1",
+        question: "this is the content of question 3",
         a: "Answer A",
         b: "Answer B",
         c: "Answer C",
         d: "Answer D",
-        correct: "c"
+        correct: "b"
     }
     
 ]
@@ -163,18 +164,17 @@ function setTime() {
 
 function displayQuiz() {
     score.textContent = "Score: " + scoreValue
-    for (i = 0; i < quiz.length; i++) {
         questionText.textContent = quiz[i].question
         ansA.textContent = quiz[i].a
         ansB.textContent = quiz[i].b
         ansC.textContent = quiz[i].c
         ansD.textContent = quiz[i].d
-    }
+        console.log(quiz[i].correct)
+
 }
 
-function evaluateAnswer(letter) {
-    for (i = 0; i < quiz.length; i++) {
-        if (quiz[i].correct === letter) {
+function evaluateA() {
+        if (quiz[i].correct === "a") {
             // if answer is correct, add to the score
             console.log("correct")
             scoreValue = scoreValue + 10
@@ -184,10 +184,51 @@ function evaluateAnswer(letter) {
             console.log("incorrect")
             secondsLeft = secondsLeft - 10
         }
-        // change to the next question
-        i ++
+}
+
+function evaluateB() {
+    if (quiz[i].correct === "b") {
+        // if answer is correct, add to the score
+        console.log("correct")
+        scoreValue = scoreValue + 10
+        score.textContent = "Score: " + scoreValue
+    }  else {
+        // if answer is incorrect, take away time
+        console.log("incorrect")
+        secondsLeft = secondsLeft - 10
     }
-    // console.log(letter)
+}
+
+function evaluateC() {
+    if (quiz[i].correct === "c") {
+        // if answer is correct, add to the score
+        console.log("correct")
+        scoreValue = scoreValue + 10
+        score.textContent = "Score: " + scoreValue
+    }  else {
+        // if answer is incorrect, take away time
+        console.log("incorrect")
+        secondsLeft = secondsLeft - 10
+    }
+}
+
+function evaluateD() {
+    if (quiz[i].correct === "d") {
+        // if answer is correct, add to the score
+        console.log("correct")
+        scoreValue = scoreValue + 10
+        score.textContent = "Score: " + scoreValue
+    }  else {
+        // if answer is incorrect, take away time
+        console.log("incorrect")
+        secondsLeft = secondsLeft - 10
+    }
+}
+
+function nextQuestion() {
+    i++
+    displayQuiz()
+    // evaluateAnswer(i, letter)
 }
 
 function placeScores() {
@@ -208,10 +249,22 @@ startButton.addEventListener("click", function() {
         displayQuiz()
 })
 
-ansA.addEventListener("click", function(){evaluateAnswer("a")})
-ansB.addEventListener("click", function(){evaluateAnswer("b")})
-ansC.addEventListener("click", function(){evaluateAnswer("c")})
-ansD.addEventListener("click", function(){evaluateAnswer("d")})
+ansA.addEventListener("click", function(){
+    evaluateA()
+    nextQuestion()
+})
+ansB.addEventListener("click", function(){
+    evaluateB()
+    nextQuestion()
+})
+ansC.addEventListener("click", function(){
+    evaluateC()
+    nextQuestion()
+})
+ansD.addEventListener("click", function(){
+    evaluateD()
+    nextQuestion()
+})
 
 
 againButton.addEventListener("click", function() {
