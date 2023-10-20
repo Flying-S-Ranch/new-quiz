@@ -44,16 +44,11 @@ startButton.textContent = "Start the Quiz"
 // text of the quiz box
 // timer.textContent = "Time :5"
 // score.textContent = "Score: " + scoreValue 
-questionText.textContent = "Hello World"
-ansA.textContent = "Hello A"
-ansB.textContent = "Hello B"
-ansC.textContent = "Hello C"
-ansD.textContent = "Hello D"
 
 // object containing quiz questions
 var quiz = [
     {
-        "question": "this is the content of question 1",
+        question: "this is the content of question 1",
         a: "Answer A",
         b: "Answer B",
         c: "Answer C",
@@ -61,7 +56,7 @@ var quiz = [
         correct: "c"
     },
     {
-        "question": "this is the content of question 1",
+        question: "this is the content of question 1",
         a: "Answer A",
         b: "Answer B",
         c: "Answer C",
@@ -69,7 +64,7 @@ var quiz = [
         correct: "c"
     },
     {
-        "question": "this is the content of question 1",
+        question: "this is the content of question 1",
         a: "Answer A",
         b: "Answer B",
         c: "Answer C",
@@ -158,7 +153,7 @@ function setTime() {
         secondsLeft--;
         timer.textContent = "Time :" + secondsLeft
 
-        if(secondsLeft === 0) {
+        if(secondsLeft <= 0) {
             clearInterval(timerInterval);
             quizBox.setAttribute("class", "display-none")
             endBox.setAttribute("class", "display-visible")
@@ -168,6 +163,31 @@ function setTime() {
 
 function displayQuiz() {
     score.textContent = "Score: " + scoreValue
+    for (i = 0; i < quiz.length; i++) {
+        questionText.textContent = quiz[i].question
+        ansA.textContent = quiz[i].a
+        ansB.textContent = quiz[i].b
+        ansC.textContent = quiz[i].c
+        ansD.textContent = quiz[i].d
+    }
+}
+
+function evaluateAnswer(letter) {
+    // for (i = 0; i < quiz.length; i++) {
+    //     if (quiz[i].correct === letter) {
+    //         // if answer is correct, add to the score
+    //         console.log("correct")
+    //         scoreValue = scoreValue + 10
+    //         score.textContent = "Score: " + scoreValue
+    //     }  else {
+    //         // if answer is incorrect, take away time
+    //         console.log("incorrect")
+    //         secondsLeft = secondsLeft - 10
+    //     }
+    //     // change to the next question
+    //     i ++
+    // }
+    console.log(letter)
 }
 
 function placeScores() {
@@ -186,42 +206,13 @@ startButton.addEventListener("click", function() {
         quizBox.setAttribute("class", "display-visible")
         setTime()
         displayQuiz()
-    
 })
 
-ansC.addEventListener("click", function() {
-    for (i = 0; i < quiz.length; i++) {
-        if (quiz[i].correct === "c") {
-            // if answer is correct, add to the score
-            console.log("correct")
-            scoreValue = scoreValue + 10
-            score.textContent = "Score: " + scoreValue
-        }  else {
-            // if answer is incorrect, take away time
-            console.log("incorrect")
-            secondsLeft = secondsLeft - 10
-        }
-        // change to the next question
-        i ++
-    }
-})
+ansA.addEventListener("click", function(){evaluateAnswer("a")})
+// ansB.addEventListener("click", evaluateAnswer("b"))
+// ansC.addEventListener("click", evaluateAnswer("c"))
+// ansD.addEventListener("click", evaluateAnswer("d"))
 
-ansA.addEventListener("click", function() {
-    for (i = 0; i < quiz.length; i++) {
-        if (quiz[i].correct === "a") {
-            // if answer is correct, add to the score
-            console.log("correct")
-            scoreValue = scoreValue + 10
-            score.textContent = "Score: " + scoreValue
-        }  else {
-            // if answer is incorrect, take away time
-            console.log("incorrect")
-            secondsLeft = secondsLeft - 10
-        }
-        // change to the next question
-        i ++
-    }
-})
 
 againButton.addEventListener("click", function() {
     scoreBox.setAttribute("class", "display-none")
