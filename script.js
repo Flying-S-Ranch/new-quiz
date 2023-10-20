@@ -226,9 +226,12 @@ function evaluateD() {
 }
 
 function nextQuestion() {
-    i++
-    displayQuiz()
-    // evaluateAnswer(i, letter)
+    if (i === quiz.length-1) {
+        console.log("Well done!")
+    } else {
+        i++
+        displayQuiz()
+    }
 }
 
 function placeScores() {
